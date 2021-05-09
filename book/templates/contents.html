@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<meta http-equiv="refresh" content="60">
+	<title>Easter Django</title>
+	<link rel="stylesheet" href=" {% static 'style.css' %} ">
+</head>
+<body>
+	<h2> Shining </h2>
+	<ul>
+		{% for chapter in book %}
+		<li>
+			<a href="/chapter/{{ forloop.counter }}">Chapter {{ forloop.counter }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+	
+	Minutes {{ minutes }}
+</body>

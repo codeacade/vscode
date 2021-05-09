@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<form method="GET">
+    <input style="width: 30px;">
+    <button type="button" onclick="onBut(this.innerHTML)">+</button>
+    <input style="width: 30px;"> = <span></span><br>
+    <button type="button" onclick="onFet(this.innerHTML)">Fetch</button>
+
+</form>
+<script>
+    inps = document.querySelectorAll('input')
+    sp1 = document.querySelector('span')
+
+    function asFirst(successC, failC) {
+        if(true) {successC}
+        else {failC}
+    }
+
+    function onBut() {
+        let Ajax = new XMLHttpRequest()
+        Ajax.onreadystatechange = function () {
+            if (Ajax.readyState == 4) {
+                if (Ajax.status != 200) console.log("Missing file!");
+                else {
+                    sp1.innerHTML = Ajax.responseText;
+                    console.log(Ajax.responseText)
+                }
+            }
+
+        }
+        Ajax.open('GET','calc?l1='+inps[0].value+'&l2='+inps[1].value,true)
+        Ajax.send(null)
+    }
+
+
+    function asFirst(succCB, failCB) {
+        if(true) {succCB}
+        else {failCB}
+    }
+
+    function asSecond(succCB, failCB) {
+        if(true) {succCB}
+        else {failCB}
+    }
+
+    function asThird(succCB, failCB) {
+        if(true) {succCB}
+        else {failCB}
+    }
+    function onFet() {
+        inps[0].value = -1;
+    
+    
+    }
+
+
+</script>
+</body>
+</html>
