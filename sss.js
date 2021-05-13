@@ -1,23 +1,4 @@
-const A1 = () =>{
-    return new Promise(r => {
-        console.log("Start")
-        setTimeout(() => {
-            r(12)
-        },2000)
-        console.log("working")
-    })
-}
 
-const A2 = () =>{
-    return new Promise(r => {
-        console.log("Start2")
-        setTimeout(() => {
-            r(12)
-        },2000)
-        console.log("working2")
-    })
-}
+[1,3,4,5,6].forEach(x => console.log(x))
 
-A1()
-.then(() => console.log("Done"))
-.then(A2)
+console.log("Finished")
