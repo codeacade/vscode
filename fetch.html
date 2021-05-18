@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<title>Async FETCH today</title>
+	<style></style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js">
+	</script>
+</head>
+<body>
+	<h1>Async FETCH today!</h1>
+	<script>
+
+	fetch("https://api.github.com")
+  .then(response => response.json())
+  .then(data => console.log(data));	
+
+	</script>
+</body>
+</html>
