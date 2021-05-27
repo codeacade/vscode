@@ -46,7 +46,7 @@ async mainFun() {
 // >"resolve_content_3"
 // >As4 
 // ----------------------------------------------------------------------------------------------------
-// async / await with Primusae.all() FUNCTION:
+// async / await with Promise.all() FUNCTION:
 
 promiseF1 = () => {return new Promise(resolve => {setTimeout(() => r("resolve_content_1"), 2000)})}
 promiseF2 = () => {return new Promise(resolve => {setTimeout(() => r("resolve_content_2"), 4000)})}
