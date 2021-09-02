@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="head"></div>
+    <div id="main"></div>
+    <div id="foot"></div>
+    <button id="fs"> Change head </button>
+    
+    <script type="text/babel">
+    const list = ["a", "ab", "abc", "abcd", "abcde", "abcdef"];
+    const headTitle = "HEAD"
+    const CompoFunction = () => {return [1,2,3,4,5].map(i=><span > { i } </span>);}
+
+    class CompoClass extends React.Component {
+      render() {
+        return <ul> { list.map( i => i.length > 3? <li> { i } </li>:"" ) } </ul>
+      }
+    }
+
+    ReactDOM.render( < h2> { headTitle } </h2> , document.querySelector("#head"))
+    ReactDOM.render( < CompoClass /> , document.querySelector("#main"))
+    ReactDOM.render( < CompoFunction /> , document.querySelector("#foot"))
+
+
+
+    </script>
+  </body>
+</html>
