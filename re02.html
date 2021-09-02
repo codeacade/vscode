@@ -15,22 +15,21 @@
     <button id="fs"> Change head </button>
     
     <script type="text/babel"> ////////////////////// BABEL HERE
+
       const list = ["a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg"];
       const headTitle = "HEAD"
 
-      class CompoClass extends React.Component {
-        render() {
+      class CompoClass extends React.Component {render() {
           return <ul> { list.map( i => i.length > 3? <li> { i } </li>:"" ) } </ul>
-        }
-      }
+      }}
 
-      class CompoHead extends React.Component { render() {
+      class CompoHead extends React.Component {render() {
         return < h2> { headTitle } </h2>
       }}
 
-      class CompoButton extends React.Component { render() {
+      class CompoButton extends React.Component {render() {
         const changeTitle= () => console.log("Change Title")
-        return <button onclick {changeTitle}> Change head </button>
+        return <button onClick={changeTitle}> Change head </button>
       }}
 
 
