@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- =================== THIS CAN BE COPIED =================== --
+    <div id="head"></div>
+    <div id="main"></div>
+    <div id="foot"></div>
+    
+    <script type="text/babel"> // ================================ BABEL HERE
+
+      const list = ["a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg"];
+      const headTitle = "HEAD"
+
+
+      // ===================== COMPONENT CLASS BELOW TO MAP LIST WITH LIMITATION
+      class CompoClass extends React.Component {render() {
+          return <ul> { list.map( i => i.length > 3? <li> { i } </li>:"" ) } </ul>
+      }}
+
+      // ===================== COMPONENT CLASS BELOW TO SET H2 HEAD TITLE
+      // ===================== THIS COMPONENT USES state OBJECT FOR COMPONENT VARIABLES
+      class CompoHead extends React.Component {
+        state = { headTitle: "CLASS-HEAD" }        // == COMPONENT VARIABLE PLACEHOLDER
+        render() {
+          const chFunction = () => this.setState({ headTitle: "U"}) // == FUNCTION TO CHANGE headTitile
+          return(  // ================ RENDERING JSX TO JS
+              <div>
+                <h2> { this.state.headTitle } </h2> // =========== COMPONENT headTitle VARIABLE DISPLAYED
+                <button onClick={ chFunction }> Change head </button>  // == EVENT FOR FIRING chFunction()
+              </div>
+            )
+        }
+      }
+
+      class CompoButton extends React.Component {render() {
+        return <button> Change footer </button>
+      }}
+
+
+      ReactDOM.render( < CompoHead /> , document.querySelector("#head"))
+      ReactDOM.render( < CompoClass /> , document.querySelector("#main"))
+      ReactDOM.render( < CompoButton /> , document.querySelector("#foot"))
+
+
+    // ============================================ BABEL END
+    </script>
+    <!-- =================== THIS CAN BE COPIED =================== --
+  </body>
+</html>
