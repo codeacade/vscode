@@ -9,16 +9,24 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
+    <!-- =================== THIS CAN BE COPIED =================== -->
     <div id="head"></div>
     <div id="main"></div>
     <div id="foot"></div>
     <button id="fs"> Change head </button>
     
-    <script type="text/babel">
+    
+    <script type="text/babel">  // ================= BABEL TO BE USED FOR TEST ONLY
     const list = ["a", "ab", "abc", "abcd", "abcde", "abcdef"];
-    const headTitle = "HEAD"
+    const headTitle = "HEAD"  // =================== USED AS VARIABLE IN FIRST ReactDOM
+    
+    
+    // ====== THIS FUNCTION CompoFunction() IS JUST TESTED AS COMPONENT ELEMENT 
+    // =========================== BELOW LIST MAPPED TO SAME LIST WITH <li> TAGS ADDED
     const CompoFunction = () => {return [1,2,3,4,5].map(i=><span > { i } </span>);}
 
+    // ====== THIS CLASS CompoClass{} IS JUST TESTED AS PROPER COMPONENT
+    // =========================== BELOW LIST IS MAPPED AND LIMITED WIT TENRARY
     class CompoClass extends React.Component {
       render() {
         return <ul> { list.map( i => i.length > 3? <li> { i } </li>:"" ) } </ul>
@@ -29,8 +37,7 @@
     ReactDOM.render( < CompoClass /> , document.querySelector("#main"))
     ReactDOM.render( < CompoFunction /> , document.querySelector("#foot"))
 
-
-
     </script>
+    <!-- =================== THIS CAN BE COPIED =================== -->    
   </body>
 </html>
