@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="head"></div>
+    <div id="main"></div>
+    <div id="foot"></div>
+    
+    <script type="text/babel"> ////////////////////// BABEL HERE
+
+      const list = ["a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg"];
+      const headTitle = "HEAD"
+
+      class CompoClass extends React.Component {render() {
+          return <ul> { list.map( i => i.length > 3? <li> { i } </li>:"" ) } </ul>
+      }}
+
+      class CompoHead extends React.Component {
+        state = { headTitle: "CLASS-HEAD" }
+        render() {
+          const chFunction = () => this.setState({ headTitle: "U"})
+          return(
+              <div>
+                <h2> { this.state.headTitle } </h2>
+                <button onClick={ chFunction }> Change head </button>
+              </div>
+            )
+        }
+      }
+
+      class CompoButton extends React.Component {render() {
+        return <button> Change footer </button>
+      }}
+
+
+      ReactDOM.render( < CompoHead /> , document.querySelector("#head"))
+      ReactDOM.render( < CompoClass /> , document.querySelector("#main"))
+      ReactDOM.render( < CompoButton /> , document.querySelector("#foot"))
+
+
+    ///////////////////////////////////////// BABEL END
+    </script>
+  </body>
+</html>
