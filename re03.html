@@ -9,27 +9,32 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
+    <!-- =================== THIS CAN BE COPIED =================== --
     <div id="head"></div>
     <div id="main"></div>
     <div id="foot"></div>
     
-    <script type="text/babel"> ////////////////////// BABEL HERE
+    <script type="text/babel"> // ================================ BABEL HERE
 
       const list = ["a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg"];
       const headTitle = "HEAD"
 
+
+      // ===================== COMPONENT CLASS BELOW TO MAP LIST WITH LIMITATION
       class CompoClass extends React.Component {render() {
           return <ul> { list.map( i => i.length > 3? <li> { i } </li>:"" ) } </ul>
       }}
 
+      // ===================== COMPONENT CLASS BELOW TO SET H2 HEAD TITLE
+      // ===================== THIS COMPONENT USES state OBJECT FOR COMPONENT VARIABLES
       class CompoHead extends React.Component {
-        state = { headTitle: "CLASS-HEAD" }
+        state = { headTitle: "CLASS-HEAD" }        // == COMPONENT VARIABLE PLACEHOLDER
         render() {
-          const chFunction = () => this.setState({ headTitle: "U"})
-          return(
+          const chFunction = () => this.setState({ headTitle: "U"}) // == FUNCTION TO CHANGE headTitile
+          return(  // ================ RENDERING JSX TO JS
               <div>
-                <h2> { this.state.headTitle } </h2>
-                <button onClick={ chFunction }> Change head </button>
+                <h2> { this.state.headTitle } </h2> // =========== COMPONENT headTitle VARIABLE DISPLAYED
+                <button onClick={ chFunction }> Change head </button>  // == EVENT FOR FIRING chFunction()
               </div>
             )
         }
@@ -45,7 +50,8 @@
       ReactDOM.render( < CompoButton /> , document.querySelector("#foot"))
 
 
-    ///////////////////////////////////////// BABEL END
+    // ============================================ BABEL END
     </script>
+    <!-- =================== THIS CAN BE COPIED =================== --
   </body>
 </html>
