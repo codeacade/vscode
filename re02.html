@@ -9,23 +9,29 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
+    <!-- =================== THIS CAN BE COPIED =================== --> 
     <div id="head"></div>
     <div id="main"></div>
     <div id="foot"></div>
     
-    <script type="text/babel"> ////////////////////// BABEL HERE
+    <script type="text/babel"> // =============================== BABEL HERE
 
       const list = ["a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg"];
       const headTitle = "HEAD"
-
+      
+      
+      // ========= TEST REACT CLASS TO BE ADDED AS 2 of 3 ReactDOM
       class CompoClass extends React.Component {render() {
           return <ul> { list.map( i => i.length > 3? <li> { i } </li>:"" ) } </ul>
       }}
 
+
+      // ========= TEST REACT CLASS TO BE ADDED AS 1 of 3 ReactDOM
       class CompoHead extends React.Component {render() {
         return < h2> { headTitle } </h2>
       }}
 
+      // ========= TEST REACT CLASS TO BE ADDED TO 3 of 3 ReactDOM
       class CompoButton extends React.Component {render() {
         const changeTitle= () => console.log("Change Title")
         return <button onClick={changeTitle}> Change head </button>
@@ -37,7 +43,8 @@
       ReactDOM.render( < CompoButton /> , document.querySelector("#foot"))
 
 
-    ///////////////////////////////////////// BABEL END
+    // =================================================== BABEL END
     </script>
+    <!-- =================== THIS CAN BE COPIED =================== --> 
   </body>
 </html>
