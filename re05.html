@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- =================== THIS CAN BE COPIED =================== --
+    <div id="head"></div>
+    <div id="main"></div>
+    <div id="foot"></div>
+    
+    <script type="text/babel"> // ================================ BABEL HERE
+      // ====== TWO WAYS OF PASSING FUNCTION TO COMPONENT
+      // ====== from https://reactjs.org/docs/faq-functions.html
+      // ====== First example - create inner chFunction as method and use bind(this) when called
+      // ====== Second example - create chFunction using arrow, no bind needed !!!
+
+
+      // ============================================================ FIRST EXAMPLE
+      class RC_Head extends React.Component {
+        state = { headTitle: "CLASS-HEAD" } // === headTitle is <h2> tag value
+
+        // ==== BELOW component METHOD (function) to change value of <h2> tag
+        // ==== BELOW Method is declared without "function" tag
+        chFunction() {this.setState({ headTitle: "CHANGED-HEAD" })} 
+
+        render() {
+          return( 
+              <div>
+                <h2> { this.state.headTitle } </h2>
+                <button onClick={ this.chFunction.bind(this) }> Change head </button>
+              </div>
+            )
+        }
+      }
+
+
+      // ============================================================ SECOND EXAMPLE
+      class RC_Foot extends React.Component {
+        state = { headTitle: "CLASS-FOOT" } // === headTitle is <h2> tag value
+
+        // ==== BELOW component METHOD (function) to change value of <h2> tag
+        // ==== BELOW Method declared with arrow allowing for -no-binging- !!
+        chFunction = () => {this.setState({ headTitle: "CHANGED-FOOT" })} 
+
+        render() {
+          return(  
+              <div>
+                <h2> { this.state.headTitle } </h2>
+                <button onClick={ this.chFunction }> Change head </button>
+              </div>
+            )
+        }
+      }
+
+
+      ReactDOM.render( < RC_Head /> , document.querySelector("#head"))
+      ReactDOM.render( < RC_Foot /> , document.querySelector("#foot"))
+
+
+    // ============================================ BABEL END
+    </script>
+    <!-- =================== THIS CAN BE COPIED =================== --
+  </body>
+</html>
