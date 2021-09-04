@@ -28,9 +28,12 @@
 
         // ==== BELOW component METHOD (function) to change value of <h2> tag
         // ==== BELOW Method is declared without "function" tag
-        chFunction() {this.setState({ headTitle: "CHANGED-HEAD" })} 
+        // ==== DONT DO THIS - NOT RECOMMENDED TO EXTEND DEFAULT REACT.COMPONENT !!!
+        // chFunction() {this.setState({ headTitle: "CHANGED-HEAD" })} 
 
         render() {
+          // MOVED FUNCTION (METHOD) FROM CLASS TO RENDER METHOD:
+          chFunction() {this.setState({ headTitle: "CHANGED-HEAD" })} 
           return( 
               <div>
                 <h2> { this.state.headTitle } </h2>
@@ -47,9 +50,12 @@
 
         // ==== BELOW component METHOD (function) to change value of <h2> tag
         // ==== BELOW Method declared with arrow allowing for -no-binging- !!
-        chFunction = () => {this.setState({ headTitle: "CHANGED-FOOT" })} 
+        // ==== DONT DO THIS - NOT RECOMMENDED TO EXTEND DEFAULT REACT.COMPONENT !!!
+        // chFunction = () => {this.setState({ headTitle: "CHANGED-FOOT" })} 
 
         render() {
+          // MOVED FUNCTION (METHOD) FROM CLASS TO RENDER METHOD:
+          chFunction = () => {this.setState({ headTitle: "CHANGED-FOOT" })} 
           return(  
               <div>
                 <h2> { this.state.headTitle } </h2>
