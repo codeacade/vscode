@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="appReact"></div>
+    <div id="appJS"></div>
+    
+    <script type="text/babel"> //////////////////////////////////// UL list from array - React
+      ReactDOM.render(
+        <ul> { ["aa", "bbb", "ccccc",  "ee", "fff", "gggg"].map(x=> <li> { x } </li>)}  </ul>,
+        document.querySelector('#appReact')
+      );
+    </script>
+    
+    <script>     //////////////////////////////////////////////// UL list from array - Pure JavaScript
+      let a = ["aa", "bbb", "ccccc",  "ee", "fff", "gggg"].map(x=>{return "<li>" + x + "</li>"}).join('')
+      document.querySelector('#uuu').innerHTML = a;
+    </script>
+    
+  </body>
+</html>
