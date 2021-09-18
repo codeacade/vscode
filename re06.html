@@ -1,0 +1,45 @@
+<!DOCTYPE html>  
+<!-- template https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="appReact"></div>
+    <div id="appJS"></div>
+    
+    <script type="text/babel">                                      // VERSION REACT
+      let pName = "ReactJS";
+      let allNames = ["aa", "bbb", "ccccc",  "ee", "fff", "gggg"];
+      const listToHtml = jsList => jsList.map(x=> <li> { x } </li>);
+      const listLimit = (jsList, listLim=0) => jsList.map(x => x.length>=listLim?<li>{ x }</li>:null);
+      
+
+      class Headline extends React.Component {
+        render() {
+          return(
+            <div>
+              <h1>Hello { pName } !</h1>
+              <ul> { listToHtml(allNames)  } </ul>
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<Headline/>,document.querySelector('#appReact'));
+    </script>
+    
+    <script>                                                      // VERSION PURE JAVSCRIPT
+      let allNames = ["aa", "bbb", "ccccc",  "ee", "fff", "gggg"];
+      function main(listJS) {
+        let listHtml = ''
+        listJS.forEach(i => listHtml += "<li>" + i + "</li>")
+        document.querySelector('#appJS').innerHTML = "<ul>" + listHtml + "</ul>"
+      }
+      main(allNames)
+    </script>
+  </body>
+</html>
